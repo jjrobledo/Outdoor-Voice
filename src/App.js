@@ -1,12 +1,14 @@
-import logo from "./logo.svg";
 import "./App.css";
-import Map from "./components/Map.component";
+import { MapProvider } from "react-map-gl";
+import MapView from "./components/Map.component";
+import Controls from "./components/MapControls.component";
 
 function App() {
   return (
-    <div className="App">
-      <Map />
-    </div>
+    <MapProvider>
+      <Controls />
+      <MapView />
+    </MapProvider>
   );
 }
 

@@ -1,23 +1,26 @@
-import React, { useState } from "react";
-import MapGL from "@urbica/react-map-gl";
+import * as React from "react";
+import Map, { Marker } from "react-map-gl";
+
 import "mapbox-gl/dist/mapbox-gl.css";
 
-export default function Map() {
-  const [viewport, setViewport] = useState({
-    latitude: 37.78,
-    longitude: -122.41,
+export default function MapView() {
+  const [viewState, setViewState] = React.useState({
+    latitude: 32.417934,
+    longitude: -104.229034,
     zoom: 11,
   });
 
+  const { REACT_APP_MAPBOX } = process.env;
+
   return (
-    <MapGL
-      style={{ width: "75vw", height: "100vh" }}
-      mapStyle="mapbox://styles/mapbox/light-v9"
-      accessToken={""}
-      latitude={37.78}
-      longitude={-122.41}
-      zoom={11}
-      onViewportChange={setViewport}
-    />
+    <Map
+      {...viewState}
+      onMove={(evt) => setViewState(evt.viewState)}
+      style={{ width: "100vw", height: "100vh" }}
+      mapStyle="mapbox://styles/mapbox/outdoors-v11"
+      mapboxAccessToken={REACT_APP_MAPBOX}
+    >
+      <Marker longitude={-122.4} latitude={37.8} color="red" />
+    </Map>
   );
 }

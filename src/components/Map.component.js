@@ -130,7 +130,7 @@ export default function MapView() {
                   placeholder="description"
                   onChange={(e) => setNewDescription(e.target.value)}
                 />
-                <button type="submit" className="button">
+                <button type="submit" className="button btn-post-submit">
                   Post
                 </button>
               </form>

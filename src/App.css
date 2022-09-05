@@ -54,10 +54,25 @@ textarea {
 }
 
 .button {
+  float: right;
   cursor: pointer;
   border: none;
   padding: 8px;
   border-radius: 15px;
   color: white;
+}
+
+.btn-post-submit {
   background-color: rgb(114, 121, 250)
+}
+
+.btn-login {
+  font-size: 18px;
+  text-transform: uppercase;
+  background-color: rgb(116, 250, 114)
+}
+.btn-logout {
+  font-size: 18px;
+  text-transform: uppercase;
+  background-color: rgb(250, 114, 114)
 }

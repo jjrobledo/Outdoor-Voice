@@ -9,6 +9,9 @@ export default function Navbar() {
       }}
     >
       <span>Outdoor Voice</span>
+      <span className="button btn-login">Login</span>
+      <span className="button btn-logout">Logout</span>
+      <span className="button btn-register">Register</span>
     </div>
   );
 }

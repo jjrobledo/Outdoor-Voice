@@ -39,3 +39,25 @@ label {
 .date {
   font-size: 12px;
 }
+
+form {
+
+}
+
+input {
+  border: none;
+  border-bottom: 1px solid;
+}
+
+textarea {
+  resize: none;
+}
+
+.button {
+  cursor: pointer;
+  border: none;
+  padding: 8px;
+  border-radius: 15px;
+  color: white;
+  background-color: rgb(114, 121, 250)
+}

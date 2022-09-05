@@ -10,6 +10,8 @@ export default function MapView() {
   const loggedInUser = "Jesse";
   const [posts, setPosts] = useState([]);
   const [newPost, setNewPost] = useState(null);
+  const [newLocation, setNewLocation] = useState(null);
+  const [newDescription, setNewDescription] = useState(null);
   const [clickedId, setClickedId] = useState(null);
   const [viewState, setViewState] = useState({
     latitude: 34,
@@ -28,6 +30,25 @@ export default function MapView() {
       lat: lat,
       long: lng,
     });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const post = {
+      username: loggedInUser,
+      title: newLocation,
+      description: newDescription,
+      lat: newPost.lat,
+      long: newPost.long,
+    };
+
+    try {
+      const response = await axios.post("/posts", post);
+      setPosts([...posts, response.data]);
+      setNewPost(null);
+    } catch (error) {
+      console.log(error);
+    }
   };
   useEffect(() => {
     const getPosts = async () => {
@@ -96,7 +117,25 @@ export default function MapView() {
             closeButton={true}
             closeOnClick={false}
             onClose={() => setNewPost(null)}
-          ></Popup>
+          >
+            <div>
+              <form onSubmit={handleSubmit}>
+                <label>Location</label>
+                <input
+                  placeholder="Location"
+                  onChange={(e) => setNewLocation(e.target.value)}
+                />
+                <label>Description</label>
+                <textarea
+                  placeholder="description"
+                  onChange={(e) => setNewDescription(e.target.value)}
+                />
+                <button type="submit" className="button">
+                  Post
+                </button>
+              </form>
+            </div>
+          </Popup>
         )}
       </ReactMapGL>
     </div>

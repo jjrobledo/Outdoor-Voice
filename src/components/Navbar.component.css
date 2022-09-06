@@ -5,6 +5,8 @@
 }
 
 .nav-username {
+    font-family: 'Lato', sans-serif;
+
     display: inline-block;
     margin-left: 20px;
 }

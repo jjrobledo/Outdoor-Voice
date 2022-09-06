@@ -20,31 +20,46 @@ export default function Login({ setShowLogin }) {
   };
 
   return (
-    <div className="login-card">
-      <div>Outdoor Voice</div>
-      <form className="login-form" onSubmit={handleSubmit}>
-        <input
-          type="email"
-          placeholder="Email"
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          onChange={(e) => setPassword(e.target.value)}
-          value={password}
-        />
-        <span
-          onClick={handleSubmit}
-          disabled={isLoading}
-          className="button btn-login"
-        >
-          Login
-        </span>
-        {error && <span style={{ color: "red" }}>{error}</span>}{" "}
-      </form>
-      <span onClick={() => setShowLogin(false)}>Close</span>
+    <div className="modal-bg">
+      <div className="modal modal-login">
+        <div className="modal-inner">
+          <span className="modal-title">Sign in</span>
+          <form className="modal-form" onSubmit={handleSubmit}>
+            <div className="field">
+              <label className="modal-label">Email</label>
+              <input
+                type="email"
+                placeholder="Email"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+              />
+            </div>
+            <div className="field">
+              <label className="modal-label">Password</label>
+              <input
+                type="password"
+                placeholder="Password"
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
+              />
+            </div>
+            <div className="field">
+              <input
+                type="submit"
+                /*                 onClick={handleSubmit}
+                disabled={isLoading}*/
+                className="btn-submit"
+              />
+            </div>
+            <div className="modal-footer">
+              <span className="close-modal" onClick={() => setShowLogin(false)}>
+                Close
+              </span>
+              {error && <span className="error-msg">{error}</span>}{" "}
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   );
 }

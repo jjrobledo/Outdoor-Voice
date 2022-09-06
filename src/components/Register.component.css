@@ -20,6 +20,9 @@
   right: 0;
   margin: auto;
 }
+.modal-login {
+    height: 425px;
+}
 
 .modal-inner {
     padding: 48px;

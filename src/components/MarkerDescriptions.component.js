@@ -1,9 +1,9 @@
 import DeleteIcon from "@mui/icons-material/Delete";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
-import { Popup } from "react-map-gl";
+import { useAuthContext } from "../hooks/useAuthContext.hook";
 
-import "./MarkerDescriptions.component.css";
+import { Popup } from "react-map-gl";
 
 export default function MarkerDescriptions({ props }) {
   const {
@@ -18,6 +18,7 @@ export default function MarkerDescriptions({ props }) {
     setEditing,
     setEditId,
   } = props;
+  const { user } = useAuthContext();
 
   console.log(clickedId === post._id);
 
@@ -82,10 +83,13 @@ export default function MarkerDescriptions({ props }) {
                     addSuffix: true,
                   })}
                 </span>
-                <div className="post-edit-icons">
-                  <DeleteIcon onClick={() => handleDelete(post._id)} />
-                  <BorderColorIcon onClick={() => setEditing(true)} />
-                </div>
+
+                {user && post.username === user.username && (
+                  <div className="post-edit-icons">
+                    <DeleteIcon onClick={() => handleDelete(post._id)} />
+                    <BorderColorIcon onClick={() => setEditing(true)} />
+                  </div>
+                )}
               </div>
             </div>
           )}

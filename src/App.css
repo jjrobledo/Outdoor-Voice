@@ -12,23 +12,6 @@
   background-color: rgb(114, 121, 250)
 }
 
-.btn-login {
-  margin-right: 10px;
-  font-size: 18px;
-  text-transform: uppercase;
-  background-color: rgb(116, 250, 114)
-}
-.btn-logout {
-  font-size: 18px;
-  text-transform: uppercase;
-  background-color: rgb(250, 114, 114)
-}
-
-.btn-register {
-  border: none;
-  background-color: brown;
-}
-
 .register-card {
   width: 300px;
   height: 300px;

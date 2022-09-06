@@ -15,17 +15,17 @@ export default function Navbar({ props }) {
       {user ? (
         <>
           <span className="nav-username">{user.username}</span>
-          <span className="button btn-logout" onClick={handleLogout}>
+          <span className="btn" onClick={handleLogout}>
             Logout
           </span>
         </>
       ) : (
-        <div>
-          <span className="button btn-login" onClick={() => setShowLogin(true)}>
+        <div className="login-buttons">
+          <span className="btn" onClick={() => setShowLogin(true)}>
             Login
           </span>
           <span
-            className="button btn-register"
+            className="btn btn-register"
             onClick={() => setShowRegister(true)}
           >
             Register

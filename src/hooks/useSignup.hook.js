@@ -5,12 +5,13 @@ export const useSignup = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
   const { dispatch } = useAuthContext();
+  const SERVER_ADDRESS = "https://outdoor-voice.herokuapp.com";
 
   const signup = async (username, email, password) => {
     setIsLoading(true);
     setError(null);
 
-    const response = await fetch("/users/register", {
+    const response = await fetch(SERVER_ADDRESS + "/api/users/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, email, password }),

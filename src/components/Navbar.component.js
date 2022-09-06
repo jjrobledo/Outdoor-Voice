@@ -1,4 +1,6 @@
-export default function Navbar() {
+export default function Navbar({ props }) {
+  const { handleLogout, user, setShowLogin, setShowRegister } = props;
+
   return (
     <div
       style={{
@@ -9,9 +11,23 @@ export default function Navbar() {
       }}
     >
       <span>Outdoor Voice</span>
-      <span className="button btn-login">Login</span>
-      <span className="button btn-logout">Logout</span>
-      <span className="button btn-register">Register</span>
+      {user ? (
+        <span className="button btn-logout" onClick={handleLogout}>
+          Logout
+        </span>
+      ) : (
+        <div>
+          <span className="button btn-login" onClick={() => setShowLogin(true)}>
+            Login
+          </span>
+          <span
+            className="button btn-register"
+            onClick={() => setShowRegister(true)}
+          >
+            Register
+          </span>
+        </div>
+      )}
     </div>
   );
 }

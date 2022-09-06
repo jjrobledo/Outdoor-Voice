@@ -1,6 +1,9 @@
 import DeleteIcon from "@mui/icons-material/Delete";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
+import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import { Popup } from "react-map-gl";
+
+import "./MarkerDescriptions.component.css";
 
 export default function MarkerDescriptions({ props }) {
   const {
@@ -31,13 +34,13 @@ export default function MarkerDescriptions({ props }) {
         <div className="popup">
           {editing ? (
             <form onSubmit={handleUpdatePost}>
-              <label>Location</label>
+              <label>Location:</label>
               <input
                 placeholder="Location"
                 defaultValue={post.title}
                 onChange={(e) => setNewLocation(e.target.value)}
               />
-              <label>Description</label>
+              <label>Description:</label>
               <textarea
                 placeholder="description"
                 defaultValue={post.description}
@@ -71,17 +74,21 @@ export default function MarkerDescriptions({ props }) {
                 <label>Description:</label>
                 <p className="description">{post.description}</p>
               </div>
-              <div className="popup-div">
-                <label>Created By:</label>
+              <div className="popup-div created-by-div">
+                <label>Created By: </label>
                 <span className="created-by">{post.username}</span>
-                <span className="date">{post.createdAt}</span>
+                <span className="date">
+                  {formatDistanceToNow(new Date(post.createdAt), {
+                    addSuffix: true,
+                  })}
+                </span>
+                <div className="post-edit-icons">
+                  <DeleteIcon onClick={() => handleDelete(post._id)} />
+                  <BorderColorIcon onClick={() => setEditing(true)} />
+                </div>
               </div>
             </div>
           )}
-          <div className="post-edit-icons">
-            <DeleteIcon onClick={() => handleDelete(post._id)} />
-            <BorderColorIcon onClick={() => setEditing(true)} />
-          </div>
         </div>
       </Popup>
     );

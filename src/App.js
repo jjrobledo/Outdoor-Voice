@@ -6,7 +6,6 @@ import Navbar from "./components/Navbar.component";
 function App() {
   return (
     <MapProvider>
-      <Navbar />
       <MapView />
     </MapProvider>
   );

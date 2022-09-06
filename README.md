@@ -22,6 +22,8 @@ To view the project Trello board click [here](https://trello.com/invite/b/6GyhAP
 - Multiple posts can be opened at the same time
 - Logout button needs to have cursor set to pointer on stylesheet
 - Login and register modals can be opened at the same time
+- Properly style the navigation bar
+- Work on mobile view
 
 ## Future Enhancements
 

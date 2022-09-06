@@ -22,6 +22,9 @@ export default function MapView() {
   const { logout } = useLogout();
   const { user } = useAuthContext();
   const { posts, dispatch } = usePostsContext();
+  const SERVER_ADDRESS = "https://outdoor-voice.herokuapp.com";
+
+  const { REACT_APP_MAPBOX } = process.env;
   const loggedInUser = (user && user.username) || "";
   const [newPost, setNewPost] = useState(null);
   const [newLocation, setNewLocation] = useState(null);
@@ -39,7 +42,7 @@ export default function MapView() {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const response = await fetch("/posts", {
+      const response = await fetch(SERVER_ADDRESS + "/api/posts", {
         headers: {
           Authorization: `Bearer ${user.token}`,
         },
@@ -78,7 +81,7 @@ export default function MapView() {
   };
 
   const handleDelete = async (postId) => {
-    const response = await fetch("/posts/" + postId, {
+    const response = await fetch(SERVER_ADDRESS + "/api/posts/" + postId, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${user.token}`,
@@ -107,7 +110,7 @@ export default function MapView() {
       long: newPost.long,
     };
 
-    const response = await fetch("/posts", {
+    const response = await fetch(SERVER_ADDRESS + "/api/posts", {
       method: "POST",
       body: JSON.stringify(post),
       headers: {
@@ -137,7 +140,7 @@ export default function MapView() {
       description: newDescription,
     };
 
-    const response = await fetch("/posts/" + editId, {
+    const response = await fetch(SERVER_ADDRESS + "/api/posts/" + editId, {
       method: "PATCH",
       body: JSON.stringify(post),
       headers: {
@@ -150,8 +153,6 @@ export default function MapView() {
       setEditing(false);
     }
   };
-
-  const { REACT_APP_MAPBOX } = process.env;
 
   return (
     <>

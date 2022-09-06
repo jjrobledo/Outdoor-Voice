@@ -1,11 +1,17 @@
 import { useState } from "react";
 import { useSignup } from "../hooks/useSignup.hook";
+import { useAuthContext } from "../hooks/useAuthContext.hook";
 
-export default function Register() {
+export default function Register({ setShowRegister }) {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { signup, error, isLoading } = useSignup();
+  const { user } = useAuthContext();
+
+  if (user) {
+    setShowRegister(false);
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -44,6 +50,7 @@ export default function Register() {
         </span>
         {error && <span style={{ color: "red" }}>{error}</span>}{" "}
       </form>
+      <span onClick={() => setShowRegister(false)}>Close</span>
     </div>
   );
 }

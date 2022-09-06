@@ -1,3 +1,4 @@
+import "./Navbar.component.css";
 export default function Navbar({ props }) {
   const { handleLogout, user, setShowLogin, setShowRegister } = props;
 
@@ -10,11 +11,14 @@ export default function Navbar({ props }) {
         backgroundColor: "#000",
       }}
     >
-      <span>Outdoor Voice</span>
+      <span className="page-title">Outdoor Voice</span>
       {user ? (
-        <span className="button btn-logout" onClick={handleLogout}>
-          Logout
-        </span>
+        <>
+          <span className="nav-username">{user.username}</span>
+          <span className="button btn-logout" onClick={handleLogout}>
+            Logout
+          </span>
+        </>
       ) : (
         <div>
           <span className="button btn-login" onClick={() => setShowLogin(true)}>

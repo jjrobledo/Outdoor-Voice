@@ -1,0 +1,10 @@
+.page-title {
+    text-transform: capitalize;
+    font-family: 'Pacifico', cursive;
+        font-size: 25px;
+}
+
+.nav-username {
+    display: inline-block;
+    margin-left: 20px;
+}

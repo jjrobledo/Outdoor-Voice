@@ -49,6 +49,7 @@
   .post-edit-icons svg {
     float: right;
     margin-right: 15px;
+    cursor: pointer;
   }
   
   .created-by-div {

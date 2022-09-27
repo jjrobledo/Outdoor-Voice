@@ -14,7 +14,11 @@ Outdoor Voice is a social mapping app that allows users to share and upload thei
 
 To get started click [here](https://main--comforting-cucurucho-b43466.netlify.app/) and signup.
 
+<<<<<<< HEAD
 To view the project Trello board click [here](https://trello.com/b/Hr2iWZoZ/project-management)
+=======
+To view the project Trello board click [here](https://trello.com/invite/b/Hr2iWZoZ/a4e768bc26ffaa77d5273966efc852d0/project-management)
+>>>>>>> b4a880ae6c30e19142e24e65aced9d37fa15de47
 
 ## Unsolved Problems
 

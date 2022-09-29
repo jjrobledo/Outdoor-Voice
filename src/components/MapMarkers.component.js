@@ -14,6 +14,8 @@ export default function MapMarkers({ props }) {
     handleDelete,
     clickedId,
     setClickedId,
+    imageFile,
+    setImageFile,
     setNewLocation,
     setNewPost,
     handleSubmitNewPost,
@@ -58,6 +60,8 @@ export default function MapMarkers({ props }) {
             setNewPost,
             setNewLocation,
             setNewDescription,
+            imageFile,
+            setImageFile,
           }}
         />
       </div>

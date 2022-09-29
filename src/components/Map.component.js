@@ -26,6 +26,7 @@ export default function MapView() {
   const { REACT_APP_MAPBOX } = process.env;
   const loggedInUser = (user && user.username) || "";
   const [newPost, setNewPost] = useState(null);
+  const [imageFile, setImageFile] = useState(null);
   const [newLocation, setNewLocation] = useState(null);
   const [newDescription, setNewDescription] = useState(null);
   const [clickedId, setClickedId] = useState(null);
@@ -100,6 +101,12 @@ export default function MapView() {
       throw new Error("Client not logged in");
       return;
     }
+
+    // send image to cloudinary
+    // check if upload was successful
+    // if upload fails send error message
+    // get cloudinary url
+    // add cloudinary url to post in database
 
     const post = {
       username: loggedInUser,
@@ -176,6 +183,8 @@ export default function MapView() {
               handleDelete,
               clickedId,
               setClickedId,
+              imageFile,
+              setImageFile,
               setNewLocation,
               setNewDescription,
               setEditing,

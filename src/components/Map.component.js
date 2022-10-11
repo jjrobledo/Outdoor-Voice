@@ -22,11 +22,13 @@ export default function MapView() {
   const { logout } = useLogout();
   const { user } = useAuthContext();
   const { posts, dispatch } = usePostsContext();
-  const SERVER_ADDRESS = "https://outdoor-voice.herokuapp.com";
+  const SERVER_ADDRESS =
+    /* "https://outdoor-voice.herokuapp.com" */ "http://localhost:5000";
   const { REACT_APP_MAPBOX } = process.env;
   const loggedInUser = (user && user.username) || "";
   const [newPost, setNewPost] = useState(null);
   const [imageFile, setImageFile] = useState(null);
+  const [image, setImage] = useState(null);
   const [newLocation, setNewLocation] = useState(null);
   const [newDescription, setNewDescription] = useState(null);
   const [clickedId, setClickedId] = useState(null);
@@ -102,6 +104,13 @@ export default function MapView() {
       return;
     }
 
+    const reader = new FileReader();
+
+    reader.readAsDataURL(imageFile);
+    reader.onloadend = () => {
+      setImage(reader.result);
+    };
+
     // send image to cloudinary
     // check if upload was successful
     // if upload fails send error message
@@ -112,6 +121,7 @@ export default function MapView() {
       username: loggedInUser,
       title: newLocation,
       description: newDescription,
+      image: image,
       lat: newPost.lat,
       long: newPost.long,
     };

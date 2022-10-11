@@ -34,7 +34,7 @@ export default function MarkerDescriptions({ props }) {
         onClose={() => setClickedId(null)}
       >
         <div className="popup">
-          <img class="post-img" src={post.image} alt="" />
+          <img class="post-img" src={post.image} alt={post.description} />
           {editing ? (
             <form onSubmit={handleUpdatePost}>
               <label>Location:</label>

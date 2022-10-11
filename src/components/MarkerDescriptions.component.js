@@ -2,7 +2,6 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import { useAuthContext } from "../hooks/useAuthContext.hook";
-
 import { Popup } from "react-map-gl";
 
 export default function MarkerDescriptions({ props }) {
@@ -33,6 +32,7 @@ export default function MarkerDescriptions({ props }) {
         onClose={() => setClickedId(null)}
       >
         <div className="popup">
+          <img class="post-img" src={post.image} alt="" />
           {editing ? (
             <form onSubmit={handleUpdatePost}>
               <label>Location:</label>

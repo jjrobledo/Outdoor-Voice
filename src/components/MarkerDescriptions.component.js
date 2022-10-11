@@ -4,6 +4,8 @@ import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import { useAuthContext } from "../hooks/useAuthContext.hook";
 import { Popup } from "react-map-gl";
 
+import "./MarkerDescriptions.component.css";
+
 export default function MarkerDescriptions({ props }) {
   const {
     post,

@@ -7,7 +7,6 @@ export default function CreateMarker({ props }) {
     setNewPost,
     setNewLocation,
     setNewDescription,
-    imageFile,
     setImageFile,
   } = props;
 
@@ -38,6 +37,9 @@ export default function CreateMarker({ props }) {
             <label>Image File</label>
             <input
               type="file"
+              id="fileinput"
+              required
+              accept="image/jpeg, image/jpg, image/png, image/webp"
               onChange={(e) => {
                 setImageFile(e.target.files[0]);
               }}

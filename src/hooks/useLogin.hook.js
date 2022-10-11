@@ -2,7 +2,8 @@ import { useState } from "react";
 import { useAuthContext } from "./useAuthContext.hook";
 
 export const useLogin = () => {
-  const SERVER_ADDRESS = "https://outdoor-voice.herokuapp.com";
+  const SERVER_ADDRESS =
+    /* "https://outdoor-voice.herokuapp.com"  */ "http://localhost:5000";
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
   const { dispatch } = useAuthContext();

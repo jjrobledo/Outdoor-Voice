@@ -22,8 +22,7 @@ export default function MapView() {
   const { logout } = useLogout();
   const { user } = useAuthContext();
   const { posts, dispatch } = usePostsContext();
-  const SERVER_ADDRESS =
-    /* "https://outdoor-voice.herokuapp.com" */ "http://localhost:5000";
+  const SERVER_ADDRESS = "https://outdoor-voice.herokuapp.com"; // "http://localhost:5000";
   const { REACT_APP_MAPBOX } = process.env;
   const loggedInUser = (user && user.username) || "";
   const [newPost, setNewPost] = useState(null);

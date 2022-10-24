@@ -35,5 +35,5 @@
     "defaults",
     "not ie 11"
   ],
-  "proxy": "http://localhost:5000/api"
+  "proxy": "https://outdoor-voice.herokuapp.com/"
 }

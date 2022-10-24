@@ -18,7 +18,6 @@ To view the project Trello board click [here](https://trello.com/invite/b/Hr2iWZ
 
 ## Unsolved Problems
 
-- Posts are protected on the frontend but not the backend - logged in users can't delete or edit posts that don't belong to them on the frontend, but they can still make PATCH and DELETE requests to the backend API.
 - Multiple posts can be opened at the same time
 - Logout button needs to have cursor set to pointer on stylesheet
 - Login and register modals can be opened at the same time

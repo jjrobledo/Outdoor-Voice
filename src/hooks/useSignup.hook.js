@@ -5,7 +5,7 @@ export const useSignup = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
   const { dispatch } = useAuthContext();
-  const SERVER_ADDRESS = "https://outdoor-voice.herokuapp.com";
+  const SERVER_ADDRESS = "https://outdoor-voice.herokuapp.com"; // "http://localhost:5000";
 
   const signup = async (username, email, password) => {
     setIsLoading(true);

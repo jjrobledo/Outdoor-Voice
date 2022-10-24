@@ -7,8 +7,11 @@ export default function CreateMarker({ props }) {
     setNewPost,
     setNewLocation,
     setNewDescription,
+    setImageFile,
   } = props;
-  console.log("NEW POST? " + newPost);
+
+  //console.log("NEW POST? " + newPost);
+
   if (newPost) {
     return (
       <Popup
@@ -30,6 +33,16 @@ export default function CreateMarker({ props }) {
             <textarea
               placeholder="description"
               onChange={(e) => setNewDescription(e.target.value)}
+            />
+            <label>Image File</label>
+            <input
+              type="file"
+              id="fileinput"
+              required
+              accept="image/jpeg, image/jpg, image/png, image/webp"
+              onChange={(e) => {
+                setImageFile(e.target.files[0]);
+              }}
             />
             <button type="submit" className="button btn-post-submit">
               Post
